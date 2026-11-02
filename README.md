@@ -1,4 +1,4 @@
-Dynamic COWIP_Q Control: Simulation, Controllers and Experiments
+COWIP_Q: Simulation, Controllers and Experiments
 Release date: 2026-11-02
 
 1. Current strategy
