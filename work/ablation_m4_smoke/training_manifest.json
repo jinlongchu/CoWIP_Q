@@ -1,0 +1,9 @@
+[
+  {
+    "module": "m4",
+    "run_seed": 13101,
+    "episodes": 4,
+    "checkpoint": "work/ablation_m4_smoke/m4/run_13101/model.pt",
+    "training_seconds": 3.094000000040978
+  }
+]

@@ -1,0 +1,46 @@
+CONWIP Lab · Assembly Coordination DES Dashboard
+
+Launch
+Double-click start_dashboard.cmd at the project root. It reuses the project Python environment,
+starts a local simulation server and opens http://127.0.0.1:8767 in a browser.
+If occupied, it tries ports 8768–8777.
+The server binds to localhost only and uploads no environment, model or experimental data.
+
+Displayed information
+1. Two five-stage A/B branches and three assembly stages with two machines per stage.
+2. Machine states, actual workpiece IDs, processing progress, queues and pairing buffers.
+3. Rolling throughput, rolling/current targets, WIP, NRMSE and mean reward.
+4. Three cap curves, recent action Q values, reward components and actual event logs.
+
+Controls
+Run/pause: repeatedly call the real environment step, advancing 10 minutes per decision.
+Step: execute one 10-minute joint decision.
+Playback speed changes browser request spacing only, not simulation units or processing parameters.
+Reset: recreate the environment using the selected seed and standard-scenario toggle; warm up for 720 minutes.
+Export: download per-decision CSV; run policies separately on matching seeds for comparison.
+
+Control policies
+M4: independent Q ensemble of five PI-off models using best matched-retraining checkpoints.
+MADQN: Q ensemble of five matched-retrained original-MADQN models, not early 300-episode models.
+Coordinated PI: the project's accepted reconstructed PI controller.
+Manual: specify three target caps. Each decision moves at most 1 toward each target; existing WIP is never deleted.
+Policy or condition changes mark a custom experiment, not a standard multi-seed benchmark result.
+
+Metric definitions
+The page shows one run on one seed, not the multi-seed average in research result tables.
+Mean reward is control-period mean per-step reward ×1000; closer to zero is better.
+NRMSE is the square root of mean per-step tracking_cost. Before any decision it displays an em dash.
+Throughput and rolling reference use a 120-minute window, so current target and rolling reference can differ.
+System WIP includes pairing buffers; each assembly set counts as two part equivalents.
+Completed products during warm-up are excluded from the displayed completed count, but warm-up workpieces may remain in the system.
+Reducing cap limits future releases without canceling ongoing work; WIP may temporarily exceed cap.
+Machine progress is sampled at 10-minute decision endpoints, not animated continuously by second.
+
+Data and files
+Simulation uses original PairV2Env without changing its environment, reward, random generator or trained models.
+The event recorder only observes machine-state transitions.
+Models come from outputs/controlled_m4_ablation/formal/no_pi and original_madqn.
+The web interface does not train, save checkpoints or overwrite existing experiment results.
+Launch logs are written under outputs/des_dashboard.
+
+To stop the local server, end the Python process whose command line includes run_des_dashboard.py in Task Manager.

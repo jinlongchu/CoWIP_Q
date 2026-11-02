@@ -1,0 +1,11 @@
+{
+  "config": "no_pi",
+  "run_seed": 13103,
+  "episode": 550,
+  "max_episodes": 1250,
+  "converged": false,
+  "best_episode": 350,
+  "best_validation_reward_x1000": -40.92199703917411,
+  "stale_validations": 4,
+  "elapsed_seconds": 2864.0
+}

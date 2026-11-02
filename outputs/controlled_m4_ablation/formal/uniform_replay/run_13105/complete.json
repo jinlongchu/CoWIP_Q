@@ -1,0 +1,12 @@
+{
+  "config": "uniform_replay",
+  "label": "M4 without PER (uniform replay)",
+  "run_seed": 13105,
+  "episodes_completed": 650,
+  "converged": true,
+  "best_episode": 450,
+  "best_validation_reward_x1000": -38.92352359334702,
+  "best_validation_nrmse": 0.1347380350718117,
+  "training_seconds": 2387.5779999999795,
+  "checkpoint": "outputs/controlled_m4_ablation/formal/uniform_replay/run_13105/best_model.pt"
+}

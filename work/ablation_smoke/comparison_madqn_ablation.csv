@@ -1,0 +1,2 @@
+module,n,training_runs,test_seeds,reward_x1000_mean,reward_x1000_sd,nrmse_mean,nrmse_sd,mean_wip_mean,mean_wip_sd,cap_adjustment_points_mean,cap_adjustment_points_sd
+m1,12,1,12,-218.55665351293973,41.476033589555335,0.42691288125431043,0.04667753190949082,22.37252690025113,0.2818626876326651,360.0,0.0

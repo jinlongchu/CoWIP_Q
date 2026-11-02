@@ -1,0 +1,12 @@
+{
+  "config": "one_step",
+  "label": "New M4 without n-step (1-step)",
+  "run_seed": 13104,
+  "episodes_completed": 650,
+  "converged": true,
+  "best_episode": 450,
+  "best_validation_reward_x1000": -42.731526773222306,
+  "best_validation_nrmse": 0.11595157182913184,
+  "training_seconds": 4777.531000000192,
+  "checkpoint": "outputs/m4_no_pi_ablation/formal/one_step/run_13104/best_model.pt"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "variant": "s13",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_joint_ablation/s13/run_13101/model.pt"
+  },
+  {
+    "variant": "s13",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_joint_ablation/s13/run_13102/model.pt"
+  },
+  {
+    "variant": "s13",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_joint_ablation/s13/run_13103/model.pt"
+  },
+  {
+    "variant": "s13",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_joint_ablation/s13/run_13104/model.pt"
+  },
+  {
+    "variant": "s13",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_joint_ablation/s13/run_13105/model.pt"
+  }
+]

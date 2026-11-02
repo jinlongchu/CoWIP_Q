@@ -1,0 +1,8 @@
+[
+  {
+    "variant": "s13",
+    "run_seed": 13101,
+    "episodes": 2,
+    "checkpoint": "work/standalone_s13_smoke/s13/run_13101/model.pt"
+  }
+]

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>CONWIP Lab · Cooperative Production DES Dashboard</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#top" aria-label="CONWIP Lab home"><span class="brand-mark">c<span>·</span></span><span>CONWIP<span class="brand-light"> LAB</span><small>Cooperative production control</small></span></a>
+    <div class="sidebar-section">WORKSPACE</div>
+    <nav aria-label="Page navigation">
+      <a class="nav-link active" href="#production"><span aria-hidden="true">▦</span>Live production<span class="nav-dot"></span></a>
+      <a class="nav-link" href="#trends"><span aria-hidden="true">↗</span>Performance trends</a>
+      <a class="nav-link" href="#events"><span aria-hidden="true">≡</span>Event log</a>
+    </nav>
+    <div class="sidebar-section control-heading">EXPERIMENT SETTINGS <span>LIVE DES</span></div>
+    <label class="field-label" for="strategy">Control policy</label>
+    <select id="strategy" aria-describedby="strategy-description"><option value="m4">M4 Q ensemble</option></select>
+    <p class="field-hint" id="strategy-description">Mean action Q-values from five independent models. PI residual guidance is off.</p>
+    <div id="manual-controls" hidden>
+      <div class="field-label">Manual target caps</div>
+      <div class="cap-inputs"><label>A<input id="cap-a" type="number" min="0" max="8" value="3"></label><label>B<input id="cap-b" type="number" min="0" max="8" value="3"></label><label>Assembly<input id="cap-k" type="number" min="0" max="8" value="2"></label></div>
+      <button id="apply-caps" class="button sidebar-button" type="button">Apply target caps</button>
+      <p class="field-hint">Each cap moves toward its target by at most one card per decision.</p>
+    </div>
+    <div class="sidebar-divider"></div>
+    <label class="field-label" for="target">Target throughput <span>kits / hour</span></label>
+    <input id="target" type="number" min="1" max="20" step="1" value="3">
+    <label class="field-label spaced" for="variability">A / B processing variability</label>
+    <select id="variability"><option value="9">Low · CV 0.33</option><option value="4">Medium · CV 0.50</option><option value="2">High · CV 0.71</option><option value="1">Very high · CV 1.00</option></select>
+    <label class="field-label spaced" for="slowdown">B3 processing-time increase <output id="slowdown-label" for="slowdown">0%</output></label>
+    <input id="slowdown" type="range" min="0" max="100" step="5" value="0">
+    <button id="apply-conditions" class="button sidebar-button" type="button">Apply conditions <span aria-hidden="true">↗</span></button>
+    <p class="field-hint">Manual changes mark this as a custom experiment. Scheduled changes remain active.</p>
+    <div class="sidebar-divider"></div>
+    <div class="reset-settings"><label class="field-label" for="seed">Random seed</label><input id="seed" type="number" min="0" max="2000000000" step="1" value="30101"></div>
+    <label class="checkbox"><input id="schedule" type="checkbox" checked><span>Enable standard scenario on reset</span></label>
+    <div class="sidebar-footer"><span class="connection-dot"></span><span id="connection">Connecting to local simulator…</span><small>SimPy / PairV2 · Inference only</small></div>
+  </aside>
+
+  <main id="top">
+    <header class="topbar"><div class="breadcrumb">Laboratory <span>/</span> Cooperative assembly production</div><div class="topbar-right"><span class="local-badge">LOCAL</span><span>Discrete-event simulation</span></div></header>
+    <div class="main-content">
+      <section class="page-heading">
+        <div><div class="eyebrow">PRODUCTION CONTROL / DIGITAL EXPERIMENT</div><h1>Production in motion.</h1><p>Follow component production and matching assembly on one shared timeline.</p></div>
+        <a class="button export-button" href="/api/export.csv" download><span aria-hidden="true">↓</span> Export data</a>
+      </section>
+      <div id="error" class="error" role="alert" hidden></div>
+      <section class="transport" aria-label="Simulation controls">
+        <div class="transport-status"><span id="status-dot" class="status-dot"></span><span id="run-status">Paused</span><span class="separator"></span><span class="clock-icon" aria-hidden="true">◷</span><strong id="clock">00:00</strong><span class="muted">/ 60:00 (hh:mm)</span></div>
+        <div class="transport-actions"><label class="speed-control" for="speed">Playback<select id="speed"><option value="1000">1×</option><option value="350" selected>3×</option><option value="100">10×</option></select></label><button id="reset" class="button" type="button">↺ Reset</button><button id="step" class="button" type="button">Step +10 min</button><button id="play" class="button primary" type="button"><span aria-hidden="true">▶</span> Start</button></div>
+      </section>
+      <div class="timeline-track" aria-label="Simulation progress"><div id="timeline-progress"></div><div id="timeline-markers"></div></div>
+
+      <section class="kpi-grid" aria-label="Current performance indicators">
+        <article class="kpi"><div class="kpi-label">Actual throughput <span class="mini-tag">Rolling window</span></div><div class="kpi-value"><span id="kpi-throughput">—</span><small>kits/h</small></div><div class="kpi-detail">Rolling reference <strong id="kpi-reference">—</strong><span> / Current target <b id="kpi-target">—</b></span></div><div class="kpi-line teal"></div></article>
+        <article class="kpi"><div class="kpi-label">System WIP</div><div class="kpi-value"><span id="kpi-wip">—</span><small>part eq.</small></div><div class="kpi-detail">Control-period mean <strong id="kpi-mean-wip">—</strong></div><div class="kpi-line blue"></div></article>
+        <article class="kpi"><div class="kpi-label">Tracking error <span class="info" title="Root mean squared relative throughput error over the control period; unavailable before the first step">i</span></div><div class="kpi-value"><span id="kpi-nrmse">—</span><small>NRMSE</small></div><div class="kpi-detail">Lower means more accurate tracking</div><div class="kpi-line amber"></div></article>
+        <article class="kpi"><div class="kpi-label">Mean reward <span class="mini-tag">×1000</span></div><div class="kpi-value"><span id="kpi-reward">—</span></div><div class="kpi-detail">Closer to zero is better · Completed <strong id="kpi-finished">0</strong> kits</div><div class="kpi-line purple"></div></article>
+      </section>
+
+      <section id="production" class="panel production-panel">
+        <div class="panel-heading"><div><h2>Live production</h2><p>Actual jobs, queues and machine states from the running DES.</p></div><div class="legend"><span><i class="legend-dot busy"></i>Busy</span><span><i class="legend-dot blocked"></i>Blocked</span><span><i class="legend-dot idle"></i>Idle</span></div></div>
+        <div class="flow-layout">
+          <div class="feeders"><div id="cell-a" class="cell cell-a"></div><div id="cell-b" class="cell cell-b"></div></div>
+          <div class="pairing-area"><div class="pairing-label">Matching buffers</div><div id="buffer-a" class="buffer buffer-a"></div><div class="pairing-rule"><span>1 A</span><span>＋</span><span>1 B</span><span>→</span><strong>1 kit</strong></div><div id="buffer-b" class="buffer buffer-b"></div></div>
+          <div class="assembly-area"><div id="cell-k" class="cell cell-k"></div><div class="finished-area"><span class="finished-icon" aria-hidden="true">✓</span><div><span>Finished output</span><strong><span id="finished-count">0</span><small>kits / control period</small></strong></div><div id="pair-status" class="pair-status">Checking component availability</div></div></div>
+        </div>
+        <div class="production-footer"><span><i class="tiny-dot"></i><span id="policy-caption">Loading control policy…</span></span><span id="action-caption">Latest actions: hold / hold / hold</span></div>
+      </section>
+
+      <section id="trends" class="charts-grid">
+        <article class="panel chart-panel"><div class="panel-heading"><div><h2>Throughput tracking</h2><p>Actual throughput against the target reference</p></div><span class="chart-unit">kits / hour</span></div><div class="chart-legend"><span><i class="line-swatch actual"></i>Actual throughput</span><span><i class="line-swatch reference"></i>Rolling reference</span><span><i class="line-swatch target"></i>Current target</span></div><div id="throughput-chart" class="chart" role="img" aria-label="Actual throughput, rolling reference and current target over control time"></div></article>
+        <article class="panel chart-panel"><div class="panel-heading"><div><h2>Coordinated WIP caps</h2><p>Actual cap settings at each decision epoch</p></div><span class="chart-unit">cards</span></div><div class="chart-legend"><span><i class="line-swatch a"></i>Workshop A</span><span><i class="line-swatch b"></i>Workshop B</span><span><i class="line-swatch k"></i>Assembly</span></div><div id="cap-chart" class="chart" role="img" aria-label="WIP caps of the three workshops over control time"></div></article>
+      </section>
+
+      <section class="bottom-grid">
+        <article id="events" class="panel event-panel"><div class="panel-heading"><div><h2>Discrete-event log</h2><p>Latest actual events · Time in control-period minutes</p></div><span id="event-count" class="event-count">0 entries</span></div><div class="event-table-wrap"><table class="event-table"><thead><tr><th>Simulation time</th><th>Event</th><th>Details</th></tr></thead><tbody id="event-rows"></tbody></table></div></article>
+        <article class="panel decision-panel"><div class="panel-heading"><div><h2>Latest decision</h2><p id="decision-strategy">M4 Q ensemble</p></div><span class="decision-badge">10 MIN</span></div><div id="decision-rows"></div><div class="cost-heading">Cost breakdown for this step <span>×1000</span></div><div class="cost-row"><span>Throughput tracking</span><strong id="cost-tracking">—</strong></div><div class="cost-row"><span>WIP holding</span><strong id="cost-inventory">—</strong></div><div class="cost-row"><span>Cap adjustment</span><strong id="cost-action">—</strong></div><p class="decision-note">Q-values are shown for learned policies only. Grey actions are unavailable at the current cap boundary.</p></article>
+      </section>
+      <details class="method-notes"><summary>Measurement notes and controls</summary><p>Each step calls the original environment and advances simulation time by 10 minutes. Playback changes the request frequency only, not the processing distributions, rewards or decision interval. Each machine shows the actual job being processed; each assembly stage has two parallel machines. The 720-minute warm-up is excluded from the output count and control-period metrics. Buffers may already contain parts at the start.</p><p>Throughput uses a 120-minute rolling window. The rolling reference changes gradually after a target change, so it may differ from the current target. System WIP includes both matching buffers, with each assembly kit counted as two component equivalents. Reducing a cap does not remove jobs already in process, so actual WIP may temporarily exceed the new cap.</p><p>This page shows one run with one seed, not the multi-seed averages reported in the paper. Switching policies or changing conditions during a run marks it as a custom experiment. Reset with the same seed to compare policies and export the resulting CSV files. Existing checkpoints are loaded for inference only; no network parameters are updated.</p></details>
+      <footer class="page-footer"><span>CONWIP LAB <span class="footer-dot">·</span> Real simulation. Transparent decisions.</span><span>3 workshops / 13 stages / 16 machines</span></footer>
+    </div>
+  </main>
+  <div id="toast" class="toast" role="status" hidden></div>
+</body>
+</html>

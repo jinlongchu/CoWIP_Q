@@ -1,0 +1,11 @@
+{
+  "config": "uniform_replay",
+  "run_seed": 13101,
+  "episode": 500,
+  "max_episodes": 1250,
+  "converged": false,
+  "best_episode": 300,
+  "best_validation_reward_x1000": -39.431176103801086,
+  "stale_validations": 4,
+  "elapsed_seconds": 1501.7660000000615
+}

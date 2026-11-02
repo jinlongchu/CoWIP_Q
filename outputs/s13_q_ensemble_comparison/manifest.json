@@ -1,0 +1,118 @@
+{
+  "training": "reuse five existing 300-episode S13 checkpoints; no retraining",
+  "limitation": "legacy training uses direct-action masks for residual Q; corrected inference is not corrected training",
+  "seeds": {
+    "test": [
+      14101,
+      14102,
+      14103,
+      14104,
+      14105,
+      14106,
+      14107,
+      14108,
+      14109,
+      14110,
+      14111,
+      14112
+    ],
+    "holdout": [
+      15101,
+      15102,
+      15103,
+      15104,
+      15105,
+      15106,
+      15107,
+      15108,
+      15109,
+      15110,
+      15111,
+      15112,
+      15113,
+      15114,
+      15115,
+      15116,
+      15117,
+      15118,
+      15119,
+      15120
+    ],
+    "fresh": [
+      29101,
+      29102,
+      29103,
+      29104,
+      29105,
+      29106,
+      29107,
+      29108,
+      29109,
+      29110,
+      29111,
+      29112
+    ]
+  },
+  "sources": [
+    {
+      "path": "outputs/madqn_joint_ablation/s13/run_13101/model.pt",
+      "sha256": "0b97488b755d8283084c52fbdd0c68e3bb4d532f9a47b22724ddae609601b488"
+    },
+    {
+      "path": "outputs/madqn_joint_ablation/s13/run_13102/model.pt",
+      "sha256": "ae10947b118070490f00ad7bf41428719ff9f9913dc1d00b342b1ec1fac7568e"
+    },
+    {
+      "path": "outputs/madqn_joint_ablation/s13/run_13103/model.pt",
+      "sha256": "3dced956b381579a9f05b8a7f21b3903a5fd15bf11c4618c64c21792c47425c1"
+    },
+    {
+      "path": "outputs/madqn_joint_ablation/s13/run_13104/model.pt",
+      "sha256": "a012dfccd9b50c85062237ae4f0216a09a707d4cfedc1e4a5015eb2416734a2a"
+    },
+    {
+      "path": "outputs/madqn_joint_ablation/s13/run_13105/model.pt",
+      "sha256": "777e38c5e2d6f81c003ea6ce50a72149fbe0294c74429975c7a1b757c4087957"
+    },
+    {
+      "path": "outputs/madqn_ablation/m4/run_13101/model.pt",
+      "sha256": "9a55342ac0b9d22b2cae196a20420efd51227c77e12481c7b68a361ae3851654"
+    },
+    {
+      "path": "outputs/madqn_ablation/m4/run_13102/model.pt",
+      "sha256": "df4601f8c83ce60b2285b4a42c374285f067818aae76e995be52c5d0c97e5d4a"
+    },
+    {
+      "path": "outputs/madqn_ablation/m4/run_13103/model.pt",
+      "sha256": "f169bf2c4031d6432fc00e9edcbb51e69e28d5023e977f2e02373b39771f8f3c"
+    },
+    {
+      "path": "outputs/madqn_ablation/m4/run_13104/model.pt",
+      "sha256": "0e6924f4aad1fe1594417a6183e82c3d5c437ff9e7472b38fca779e6ba2f7ba8"
+    },
+    {
+      "path": "outputs/madqn_ablation/m4/run_13105/model.pt",
+      "sha256": "d1baaab25c2536dc42b9efbdf9eba04f6acb413538392f1a8907950bb2c01710"
+    },
+    {
+      "path": "outputs/madqn_m4_final_converged/run_13101/best_model.pt",
+      "sha256": "70b91d5a65650f437e28ad7f82a95f380de8a6ea0d26e8ba1a31fd9646bb2cc6"
+    },
+    {
+      "path": "outputs/madqn_m4_final_converged/run_13102/best_model.pt",
+      "sha256": "b38348ba357f758a345fdcbbfbad2d2be53492d2e74ed9d72997682f7feacaa4"
+    },
+    {
+      "path": "outputs/madqn_m4_final_converged/run_13103/best_model.pt",
+      "sha256": "83955062ff82258737bb23405271ab0251ffb215c3b32008be1c62c8d1efcb80"
+    },
+    {
+      "path": "outputs/madqn_m4_final_converged/run_13104/best_model.pt",
+      "sha256": "1c9469b2eb61e6727b6c9eb06a5a70ae5baaf41a9fd58f855a7115b937a2023b"
+    },
+    {
+      "path": "outputs/madqn_m4_final_converged/run_13105/best_model.pt",
+      "sha256": "d707a943faf187cee1a2ff6bc929c9e0f25d94341b9f026950f3c87ddb65f8da"
+    }
+  ]
+}

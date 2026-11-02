@@ -1,0 +1,142 @@
+[
+  {
+    "module": "m1",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m1/run_13101/model.pt",
+    "training_seconds": 530.5469999999041
+  },
+  {
+    "module": "m1",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m1/run_13102/model.pt",
+    "training_seconds": 521.625
+  },
+  {
+    "module": "m1",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m1/run_13103/model.pt",
+    "training_seconds": 530.875
+  },
+  {
+    "module": "m1",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m1/run_13104/model.pt",
+    "training_seconds": 523.6870000000345
+  },
+  {
+    "module": "m1",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m1/run_13105/model.pt",
+    "training_seconds": 522.4529999999795
+  },
+  {
+    "module": "m2",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m2/run_13101/model.pt",
+    "training_seconds": 636.25
+  },
+  {
+    "module": "m2",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m2/run_13102/model.pt",
+    "training_seconds": 632.7030000000959
+  },
+  {
+    "module": "m2",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m2/run_13103/model.pt",
+    "training_seconds": 636.25
+  },
+  {
+    "module": "m2",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m2/run_13104/model.pt",
+    "training_seconds": 649.140000000014
+  },
+  {
+    "module": "m2",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m2/run_13105/model.pt",
+    "training_seconds": 649.6720000000205
+  },
+  {
+    "module": "m3",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m3/run_13101/model.pt",
+    "training_seconds": 1323.015999999945
+  },
+  {
+    "module": "m3",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m3/run_13102/model.pt",
+    "training_seconds": 1361.1560000000754
+  },
+  {
+    "module": "m3",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m3/run_13103/model.pt",
+    "training_seconds": 1349.015999999945
+  },
+  {
+    "module": "m3",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m3/run_13104/model.pt",
+    "training_seconds": 1347.3910000000615
+  },
+  {
+    "module": "m3",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m3/run_13105/model.pt",
+    "training_seconds": 1349.688000000082
+  },
+  {
+    "module": "m4",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m4/run_13101/model.pt",
+    "training_seconds": 1310.688000000082
+  },
+  {
+    "module": "m4",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m4/run_13102/model.pt",
+    "training_seconds": 1317.969000000041
+  },
+  {
+    "module": "m4",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m4/run_13103/model.pt",
+    "training_seconds": 1320.0470000000205
+  },
+  {
+    "module": "m4",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m4/run_13104/model.pt",
+    "training_seconds": 1336.5779999999795
+  },
+  {
+    "module": "m4",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_ablation/m4/run_13105/model.pt",
+    "training_seconds": 1328.734000000055
+  }
+]

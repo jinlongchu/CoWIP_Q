@@ -1,0 +1,12 @@
+{
+  "config": "original_madqn",
+  "label": "Original MADQN (matched retraining)",
+  "run_seed": 13102,
+  "episodes_completed": 850,
+  "converged": true,
+  "best_episode": 650,
+  "best_validation_reward_x1000": -48.28314417363682,
+  "best_validation_nrmse": 0.14247094641633387,
+  "training_seconds": 1304.063000000082,
+  "checkpoint": "outputs/controlled_m4_ablation/formal/original_madqn/run_13102/best_model.pt"
+}

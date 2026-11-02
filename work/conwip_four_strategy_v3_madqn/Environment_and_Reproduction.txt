@@ -1,0 +1,21 @@
+PairV2 Environment and MADQN Four-Strategy Rerun
+
+Comparison: fixed CONWIP, coordinated PI reconstructed from known parameters, MADQN and centralized DQN.
+MADQN replaces MAPPO. This version contains no MAPPO policy code or checkpoints. Earlier archives remain separate historical versions.
+
+Training service seeds: 13101–13105; 300 full dynamic episodes per MADQN seed.
+Test service seeds: 14101–14112. Each MADQN/DQN trained model evaluates the same 12 seeds, yielding n=60.
+Fixed-policy candidate scans and central-DQN models reuse prior products from the same environment and seeds.
+
+See `PAIR_V2_Guide.md` and training `design.json` for baseline settings, three-cell actions, reward, regime changes and initial caps.
+The source specifications define the environment and random seeds. This experimental version uses MADQN rather than MAPPO.
+
+PI equations were missing from the inputs, so a runnable controller was built from known parameters and labeled reconstructed.
+MADQN and DQN are project reimplementations, not verbatim historical-program reproductions.
+
+Run instructions:
+    python -m pip install -r requirements-rl.txt
+    python run_four_strategies.py --mode all --episodes 300 --runs 5 --workers 1 --output results/madqn_rerun
+    python make_comparison.py --results results/four_strategy_v2_madqn
+
+Report static checks, unit tests and completed training/evaluation separately. Never fill performance results for training that was not run.

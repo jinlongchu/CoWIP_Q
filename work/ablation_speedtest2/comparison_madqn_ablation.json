@@ -1,0 +1,16 @@
+[
+  {
+    "module": "m2",
+    "n": 12,
+    "training_runs": 1,
+    "test_seeds": 12,
+    "reward_x1000_mean": -448.2053137390733,
+    "reward_x1000_sd": 44.448165139091444,
+    "nrmse_mean": 0.6490889315706665,
+    "nrmse_sd": 0.03507487623162788,
+    "mean_wip_mean": 17.340986610534227,
+    "mean_wip_sd": 1.549804347795119,
+    "cap_adjustment_points_mean": 327.5833333333333,
+    "cap_adjustment_points_sd": 16.686730347703524
+  }
+]

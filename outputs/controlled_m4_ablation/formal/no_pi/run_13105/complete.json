@@ -1,0 +1,12 @@
+{
+  "config": "no_pi",
+  "label": "M4 without PI residual guidance",
+  "run_seed": 13105,
+  "episodes_completed": 1250,
+  "converged": false,
+  "best_episode": 1100,
+  "best_validation_reward_x1000": -37.00443278244595,
+  "best_validation_nrmse": 0.12460090523763012,
+  "training_seconds": 9550.5,
+  "checkpoint": "outputs/controlled_m4_ablation/formal/no_pi/run_13105/best_model.pt"
+}

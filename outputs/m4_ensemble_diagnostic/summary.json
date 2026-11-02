@@ -1,0 +1,67 @@
+[
+  {
+    "split": "same_test",
+    "method": "ensemble_raw",
+    "n": 12,
+    "reward_x1000_mean": -39.20084862308376,
+    "reward_x1000_sd": 2.259378731234311,
+    "nrmse_mean": 0.1344205845556164,
+    "nrmse_sd": 0.008419825757997835,
+    "mean_wip_mean": 14.79026402326245,
+    "mean_wip_sd": 0.12756450858716897,
+    "cap_adjustment_points_mean": 246.41666666666666,
+    "cap_adjustment_points_sd": 7.537281078784715
+  },
+  {
+    "split": "same_test",
+    "method": "ensemble_margin_0.01",
+    "n": 12,
+    "reward_x1000_mean": -39.6958518567109,
+    "reward_x1000_sd": 2.707567586426515,
+    "nrmse_mean": 0.13880295787364913,
+    "nrmse_sd": 0.00962453726188302,
+    "mean_wip_mean": 14.611940102139199,
+    "mean_wip_sd": 0.11558297161750848,
+    "cap_adjustment_points_mean": 193.33333333333334,
+    "cap_adjustment_points_sd": 8.957813586050127
+  },
+  {
+    "split": "unseen",
+    "method": "ensemble_raw",
+    "n": 20,
+    "reward_x1000_mean": -38.38548934124643,
+    "reward_x1000_sd": 2.0574881803655285,
+    "nrmse_mean": 0.13097671157258334,
+    "nrmse_sd": 0.0078020266997344545,
+    "mean_wip_mean": 14.863864183552584,
+    "mean_wip_sd": 0.17785630832719615,
+    "cap_adjustment_points_mean": 248.25,
+    "cap_adjustment_points_sd": 6.239728401646644
+  },
+  {
+    "split": "unseen",
+    "method": "ensemble_margin_0.01",
+    "n": 20,
+    "reward_x1000_mean": -38.495984382756774,
+    "reward_x1000_sd": 1.9706271645905977,
+    "nrmse_mean": 0.13440594195377747,
+    "nrmse_sd": 0.007667463760332802,
+    "mean_wip_mean": 14.637347216799062,
+    "mean_wip_sd": 0.2523123404279014,
+    "cap_adjustment_points_mean": 193.4,
+    "cap_adjustment_points_sd": 6.361065782927955
+  },
+  {
+    "split": "unseen",
+    "method": "pi",
+    "n": 20,
+    "reward_x1000_mean": -46.865044243346475,
+    "reward_x1000_sd": 2.8380764930030993,
+    "nrmse_mean": 0.16423050581654836,
+    "nrmse_sd": 0.008662344300128967,
+    "mean_wip_mean": 14.505704018638827,
+    "mean_wip_sd": 0.3114600501317373,
+    "cap_adjustment_points_mean": 135.95,
+    "cap_adjustment_points_sd": 12.676023783007368
+  }
+]

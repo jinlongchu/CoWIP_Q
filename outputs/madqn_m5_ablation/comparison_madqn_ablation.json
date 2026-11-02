@@ -1,0 +1,16 @@
+[
+  {
+    "module": "m5",
+    "n": 60,
+    "training_runs": 5,
+    "test_seeds": 12,
+    "reward_x1000_mean": -43.57277698272449,
+    "reward_x1000_sd": 3.645974833862587,
+    "nrmse_mean": 0.14413655747003284,
+    "nrmse_sd": 0.011499157981377812,
+    "mean_wip_mean": 15.866321953720018,
+    "mean_wip_sd": 0.5390479266664296,
+    "cap_adjustment_points_mean": 263.6,
+    "cap_adjustment_points_sd": 21.71791418645376
+  }
+]

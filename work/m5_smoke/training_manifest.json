@@ -1,0 +1,9 @@
+[
+  {
+    "module": "m5",
+    "run_seed": 13101,
+    "episodes": 2,
+    "checkpoint": "work/m5_smoke/m5/run_13101/model.pt",
+    "training_seconds": 0.8279999999795109
+  }
+]

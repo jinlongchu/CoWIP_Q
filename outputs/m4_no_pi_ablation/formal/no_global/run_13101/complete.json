@@ -1,0 +1,12 @@
+{
+  "config": "no_global",
+  "label": "New M4 without global features",
+  "run_seed": 13101,
+  "episodes_completed": 650,
+  "converged": true,
+  "best_episode": 450,
+  "best_validation_reward_x1000": -39.310089997700764,
+  "best_validation_nrmse": 0.13751449225633333,
+  "training_seconds": 5144.093999999808,
+  "checkpoint": "outputs/m4_no_pi_ablation/formal/no_global/run_13101/best_model.pt"
+}

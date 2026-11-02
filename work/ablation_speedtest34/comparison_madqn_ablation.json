@@ -1,0 +1,30 @@
+[
+  {
+    "module": "m3",
+    "n": 12,
+    "training_runs": 1,
+    "test_seeds": 12,
+    "reward_x1000_mean": -225.0136394527191,
+    "reward_x1000_sd": 41.595057726338304,
+    "nrmse_mean": 0.43725897291616883,
+    "nrmse_sd": 0.046720137431662416,
+    "mean_wip_mean": 21.63759519931539,
+    "mean_wip_sd": 0.2507099897599369,
+    "cap_adjustment_points_mean": 360.0,
+    "cap_adjustment_points_sd": 0.0
+  },
+  {
+    "module": "m4",
+    "n": 12,
+    "training_runs": 1,
+    "test_seeds": 12,
+    "reward_x1000_mean": -558.0927863993353,
+    "reward_x1000_sd": 36.84971079715742,
+    "nrmse_mean": 0.7204703853068511,
+    "nrmse_sd": 0.025282099719385956,
+    "mean_wip_mean": 27.41562852711749,
+    "mean_wip_sd": 1.0173418392321152,
+    "cap_adjustment_points_mean": 353.75,
+    "cap_adjustment_points_sd": 4.84533515118126
+  }
+]

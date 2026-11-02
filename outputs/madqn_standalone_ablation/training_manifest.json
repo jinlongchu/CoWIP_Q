@@ -1,0 +1,92 @@
+[
+  {
+    "variant": "s1",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s1/run_13101/model.pt"
+  },
+  {
+    "variant": "s1",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s1/run_13102/model.pt"
+  },
+  {
+    "variant": "s1",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s1/run_13103/model.pt"
+  },
+  {
+    "variant": "s1",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s1/run_13104/model.pt"
+  },
+  {
+    "variant": "s1",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s1/run_13105/model.pt"
+  },
+  {
+    "variant": "s2",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s2/run_13101/model.pt"
+  },
+  {
+    "variant": "s2",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s2/run_13102/model.pt"
+  },
+  {
+    "variant": "s2",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s2/run_13103/model.pt"
+  },
+  {
+    "variant": "s2",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s2/run_13104/model.pt"
+  },
+  {
+    "variant": "s2",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s2/run_13105/model.pt"
+  },
+  {
+    "variant": "s3",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s3/run_13101/model.pt"
+  },
+  {
+    "variant": "s3",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s3/run_13102/model.pt"
+  },
+  {
+    "variant": "s3",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s3/run_13103/model.pt"
+  },
+  {
+    "variant": "s3",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s3/run_13104/model.pt"
+  },
+  {
+    "variant": "s3",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_standalone_ablation/s3/run_13105/model.pt"
+  }
+]

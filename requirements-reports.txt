@@ -1,0 +1,5 @@
+-r requirements.txt
+reportlab
+pypdf
+pdfplumber
+Pillow

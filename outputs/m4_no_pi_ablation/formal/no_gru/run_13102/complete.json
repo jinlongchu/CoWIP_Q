@@ -1,0 +1,12 @@
+{
+  "config": "no_gru",
+  "label": "New M4 without GRU",
+  "run_seed": 13102,
+  "episodes_completed": 800,
+  "converged": true,
+  "best_episode": 600,
+  "best_validation_reward_x1000": -41.80336703901303,
+  "best_validation_nrmse": 0.13860674577117013,
+  "training_seconds": 6000.186999999918,
+  "checkpoint": "outputs/m4_no_pi_ablation/formal/no_gru/run_13102/best_model.pt"
+}

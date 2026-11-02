@@ -1,0 +1,37 @@
+[
+  {
+    "module": "m5",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_m5_ablation/m5/run_13101/model.pt",
+    "training_seconds": 1251.0
+  },
+  {
+    "module": "m5",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_m5_ablation/m5/run_13102/model.pt",
+    "training_seconds": 1323.0620000000345
+  },
+  {
+    "module": "m5",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_m5_ablation/m5/run_13103/model.pt",
+    "training_seconds": 1266.875
+  },
+  {
+    "module": "m5",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_m5_ablation/m5/run_13104/model.pt",
+    "training_seconds": 1272.25
+  },
+  {
+    "module": "m5",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "outputs/madqn_m5_ablation/m5/run_13105/model.pt",
+    "training_seconds": 1334.484999999986
+  }
+]

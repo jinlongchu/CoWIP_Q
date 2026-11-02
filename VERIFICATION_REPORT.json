@@ -1,0 +1,23 @@
+{
+  "language": "en",
+  "release": "2026-11-02",
+  "checkpoints_verified": 232,
+  "checkpoint_bytes_unchanged": true,
+  "json_experiment_files_verified": 200,
+  "csv_files_verified": 365,
+  "workbooks_verified": 2,
+  "experiment_numeric_values_unchanged": true,
+  "pdf_pages_checked": 58,
+  "python_sources_syntax_checked": 36,
+  "tests_passed": 28,
+  "expected_warnings": [
+    "Gymnasium observation Box lower and upper bounds are unbounded."
+  ],
+  "model_inference_check": "Five PI-off M4 checkpoints, one 10-minute DES decision.",
+  "fresh_dependency_install_tested": false,
+  "notes": [
+    "Experimental limitations, method references and third-party licenses are retained.",
+    "Workbook result files are included; optional development-only workbook builders are excluded.",
+    "Experiment commands should be run from the project root."
+  ]
+}

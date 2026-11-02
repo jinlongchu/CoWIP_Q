@@ -1,0 +1,11 @@
+{
+  "config": "original_madqn",
+  "run_seed": 13102,
+  "episode": 850,
+  "max_episodes": 1250,
+  "converged": false,
+  "best_episode": 650,
+  "best_validation_reward_x1000": -48.28314417363682,
+  "stale_validations": 4,
+  "elapsed_seconds": 1304.063000000082
+}

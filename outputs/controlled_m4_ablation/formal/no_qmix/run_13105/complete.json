@@ -1,0 +1,12 @@
+{
+  "config": "no_qmix",
+  "label": "M4 without QMIX",
+  "run_seed": 13105,
+  "episodes_completed": 800,
+  "converged": true,
+  "best_episode": 600,
+  "best_validation_reward_x1000": -37.898615831811775,
+  "best_validation_nrmse": 0.12755630395336734,
+  "training_seconds": 7027.125,
+  "checkpoint": "outputs/controlled_m4_ablation/formal/no_qmix/run_13105/best_model.pt"
+}

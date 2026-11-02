@@ -1,0 +1,72 @@
+[
+  {
+    "method": "dqn",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/dqn/run_13101/model.pt",
+    "sha256": "bc552e736c61d19b7fd2af01d44a285b4e238323793e8343ae00a1d79716063f"
+  },
+  {
+    "method": "dqn",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/dqn/run_13102/model.pt",
+    "sha256": "760d28ac811d48e3b4783abfb78fac77907f3a8aa9e03054868f73084c9d857e"
+  },
+  {
+    "method": "dqn",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/dqn/run_13103/model.pt",
+    "sha256": "be83d2473fbd08eb2aa804e7d3b023878e85c4e5658b10ada62fc3cb2e724392"
+  },
+  {
+    "method": "dqn",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/dqn/run_13104/model.pt",
+    "sha256": "3c67bf4bd2e07a74b24f043fa10d5c1e221bf3f50a3c30b19e8469e073bd959e"
+  },
+  {
+    "method": "dqn",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/dqn/run_13105/model.pt",
+    "sha256": "3755049756833c15a3c7613e5a4c78903fe3d27915830ab804938f21d7bca658"
+  },
+  {
+    "method": "madqn",
+    "run_seed": 13101,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/madqn/run_13101/model.pt",
+    "sha256": "4dd5a2d44974a1d46f9dfd09ecb5203c2288ec53caa6f79a2759960f4b516715"
+  },
+  {
+    "method": "madqn",
+    "run_seed": 13102,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/madqn/run_13102/model.pt",
+    "sha256": "d781e6c49af03e824048dc4c68b11495ad62b0dffa7fc1071b9452dcedec1119"
+  },
+  {
+    "method": "madqn",
+    "run_seed": 13103,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/madqn/run_13103/model.pt",
+    "sha256": "299f3b2435925b9049ec7cb6e72b986de642cb796f2addcf6ffc3445fb27204f"
+  },
+  {
+    "method": "madqn",
+    "run_seed": 13104,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/madqn/run_13104/model.pt",
+    "sha256": "fef3d31b1db3d8108b79dd68c53d0fc9ee00bddc4b4106d60337783a79603ff5"
+  },
+  {
+    "method": "madqn",
+    "run_seed": 13105,
+    "episodes": 300,
+    "checkpoint": "results/four_strategy_v2_madqn/madqn/run_13105/model.pt",
+    "sha256": "b2d927443f71e52f9f5d08827fcfddaace28d2b032e8d8c728aac810d264af72"
+  }
+]

@@ -1,0 +1,11 @@
+[
+  {
+    "run_seed": 13104,
+    "episodes_completed": 1250,
+    "converged": true,
+    "best_episode": 1050,
+    "best_validation_reward_x1000": -37.55218779687409,
+    "best_validation_nrmse": 0.12585357143741138,
+    "checkpoint": "outputs/madqn_m4_converged_finish_13104/run_13104/best_model.pt"
+  }
+]

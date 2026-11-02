@@ -1,0 +1,20 @@
+[
+  {
+    "variant": "s1",
+    "run_seed": 13101,
+    "episodes": 2,
+    "checkpoint": "work/standalone_smoke/s1/run_13101/model.pt"
+  },
+  {
+    "variant": "s2",
+    "run_seed": 13101,
+    "episodes": 2,
+    "checkpoint": "work/standalone_smoke/s2/run_13101/model.pt"
+  },
+  {
+    "variant": "s3",
+    "run_seed": 13101,
+    "episodes": 2,
+    "checkpoint": "work/standalone_smoke/s3/run_13101/model.pt"
+  }
+]

@@ -1,0 +1,24 @@
+{
+  "test": {
+    "n": 12,
+    "reward_x1000_mean": -54.038286576444314,
+    "reward_x1000_sd": 6.63393122642861,
+    "nrmse_mean": 0.1833871089895812,
+    "nrmse_sd": 0.01743171498683413,
+    "mean_wip_mean": 14.625936237081406,
+    "mean_wip_sd": 0.2582860765304986,
+    "cap_adjustment_points_mean": 157.41666666666666,
+    "cap_adjustment_points_sd": 13.473599325639709
+  },
+  "holdout": {
+    "n": 20,
+    "reward_x1000_mean": -54.00823731391605,
+    "reward_x1000_sd": 8.942348288123553,
+    "nrmse_mean": 0.18244177544558543,
+    "nrmse_sd": 0.023828958078818716,
+    "mean_wip_mean": 14.64408266885049,
+    "mean_wip_sd": 0.30934955003856135,
+    "cap_adjustment_points_mean": 159.45,
+    "cap_adjustment_points_sd": 12.588528612652828
+  }
+}

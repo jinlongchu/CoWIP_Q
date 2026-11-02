@@ -1,0 +1,16 @@
+[
+  {
+    "module": "m3",
+    "run_seed": 13101,
+    "episodes": 10,
+    "checkpoint": "work/ablation_speedtest34/m3/run_13101/model.pt",
+    "training_seconds": 12.797000000020489
+  },
+  {
+    "module": "m4",
+    "run_seed": 13101,
+    "episodes": 10,
+    "checkpoint": "work/ablation_speedtest34/m4/run_13101/model.pt",
+    "training_seconds": 12.719000000040978
+  }
+]

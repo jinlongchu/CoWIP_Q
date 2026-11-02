@@ -1,0 +1,26 @@
+from pathlib import Path
+import json, html
+
+ROOT=Path(__file__).resolve().parent.parent
+OUT=ROOT/'outputs/s13_q_ensemble_comparison'
+rows=json.loads((OUT/'summary.json').read_text())
+assert len(rows)==12
+names={'s13_legacy_q_ensemble':'Simplified: original S13 five-model ensemble',
+ 's13_corrected_inference_only':'Simplified: execution-mask correction only',
+ 'm4_300_q_ensemble':'Full M4: 300-episode five-model ensemble',
+ 'm4_final_q_ensemble':'Full M4: validation-plateau ensemble'}
+intro='<h1>Simplified Independent Q Ensemble versus Full M4</h1>\n<p>Simplified = MADQN + global features + GRU + PI residual guidance + five-model independent Q ensemble. Relative to full M4, remove QMIX and use independent local TD targets; replace 3-step with 1-step; replace PER with uniform replay.</p>\n<aside><b>This is a new evaluation of existing checkpoints, not retraining.</b> Each of the five old S13 members trained for 300 episodes. Inspection found a direct-action mask applied to residual outputs in the GRU branch, and no zero-residual output-bias initialization matching M4. These results are not a strictly controlled three-module removal ablation. The second row corrects only the execution mask, leaving historical effects in the training targets.</aside>\n<p>Action clipping and environment cap bounds still prevent limit violations, but introduce residual-action aliases, omit legal candidates, and make training/exploration masks inconsistent. This implementation-semantic issue cannot be ignored.</p>\n<h2>Architecture Differences</h2><table><tr><th>Component</th><th>Simplified variant</th><th>Full M4</th></tr>\n<tr><td>Global summary + 4-frame GRU</td><td>Retained</td><td>Retained</td></tr>\n<tr><td>PI residual guidance</td><td>Retained</td><td>Retained</td></tr>\n<tr><td>Training value</td><td>Local TD loss per line</td><td>QMIX team TD loss</td></tr>\n<tr><td>Multi-step target</td><td>1-step</td><td>3-step</td></tr>\n<tr><td>Experience replay</td><td>Uniform replay</td><td>PER</td></tr>\n<tr><td>Execution</td><td>Local Q average over 5 members</td><td>Local Q average over 5 members</td></tr></table>\n<p>Both execute five GRU/Q members. Removing QMIX, n-step and PER mainly simplifies training, without guaranteeing much faster inference. Full M4 trained for 750–1250 episodes, with best checkpoints at 550–1050, versus 300 for the simplified version. Budgets differ.</p>'
+parts=[intro]
+for split,title in [('test','Historical test: 12 seeds'),('holdout','Historical holdout: 20 seeds'),('fresh','Additional evaluation: 12 seeds (29101–29112)')]:
+    group=[x for x in rows if x['split']==split]
+    parts.append(f"""<h2>{title}</h2><table><tr><th>Method</th><th>reward×1000 ↑</th><th>NRMSE ↓</th><th>Mean WIP</th><th>Change points</th></tr>""")
+    for x in group:
+        parts.append('<tr><td>'+names[x['method']]+'</td>'+''.join(f'<td>{x[k+"_mean"]:.{prec}f} ± {x[k+"_sd"]:.{prec}f}</td>' for k,prec in [('reward_x1000',3),('nrmse',5),('mean_wip',3),('cap_adjustment_points',2)])+'</tr>')
+    parts.append('</table>')
+    a,b=group[0],group[2]
+    diff=a['reward_x1000_mean']-b['reward_x1000_mean']
+    parts.append(f"""<p>Using existing 300-episode weights, the old simplified version minus full M4 has reward difference {diff:+.3f}; NRMSE difference {a["nrmse_mean"]-b["nrmse_mean"]:+.5f}. This is descriptive, not a claim of statistical significance or a single-module causal effect.</p>""")
+parts.append('<h2>How to Use These Results</h2><p>This evaluates the existing global-feature + GRU + PI-residual model with five-model Q ensembling. It does not determine whether a corrected simplified version beats full M4 under matched training and selection. That requires residual-mask fixes, matched initialization/budgets and retraining.</p>\n<p>The historical test/holdout results had been inspected during development. Additional seeds were fixed before this evaluation and were not used for tuning. They still use the same operating schedule and do not establish generalization across schedules or factories. All metrics come from closed-loop runs. ± is the sample standard deviation across seeds, not a confidence interval. A cap-change point is a decision at which at least one cap changes.</p>\n<p>Traceable data: <a href="summary.json">Summary JSON</a> · <a href="per_episode.json">Metrics by seed</a> · <a href="manifest.json">Model paths, hashes and seeds</a> · <a href="verification.json">Verification record</a></p>')
+doc='<!doctype html><html lang="en"><meta charset="utf-8"><title>Simplified Q Ensemble Comparison</title><style>body{font-family:"Arial",sans-serif;max-width:1100px;margin:40px auto;padding:0 25px;line-height:1.85;color:#183349}h1{font-size:28px}h2{margin-top:36px;color:#087f8c}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:11px;border-bottom:1px solid #d7e3e8;text-align:left}th{background:#e7f1f4}td:not(:first-child){white-space:nowrap}aside{padding:20px;background:#fff3dc;border-left:4px solid #bd8530}a{color:#087f8c}@media print{body{margin:0}table{font-size:11px}aside{break-inside:avoid}}</style>'+''.join(parts)+'</html>'
+(OUT/'Simplified_Q_Ensemble_Comparison.html').write_text(doc,encoding='utf-8')
+print(OUT/'Simplified_Q_Ensemble_Comparison.html')

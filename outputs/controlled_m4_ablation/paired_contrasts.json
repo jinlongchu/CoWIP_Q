@@ -1,0 +1,322 @@
+[
+  {
+    "method": "single",
+    "ablation": "no_global",
+    "label": "M4 without global features",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -0.7262049598026105,
+    "ci95_low": -1.569555353040273,
+    "ci95_high": 0.2465148779419838,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "no_global",
+    "label": "M4 without global features",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.0013740506980456227,
+    "ci95_low": -0.003521762107989559,
+    "ci95_high": 0.006868639117907329,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "no_gru",
+    "label": "M4 without GRU",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -3.20427205476136,
+    "ci95_low": -4.278939781188397,
+    "ci95_high": -2.030488182813641,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "no_gru",
+    "label": "M4 without GRU",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.00767115449384048,
+    "ci95_low": 0.003746153948790502,
+    "ci95_high": 0.011799907414614848,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "no_qmix",
+    "label": "M4 without QMIX",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -0.9212718678424304,
+    "ci95_low": -1.6668275281216862,
+    "ci95_high": -0.16561929774917553,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "no_qmix",
+    "label": "M4 without QMIX",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.001647464738530138,
+    "ci95_low": -0.003492841080403852,
+    "ci95_high": 0.00696848605372545,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "one_step",
+    "label": "M4 without n-step (1-step)",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -1.3303201193619831,
+    "ci95_low": -2.2400678662353686,
+    "ci95_high": -0.35903736927135266,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "one_step",
+    "label": "M4 without n-step (1-step)",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.0025748584151970262,
+    "ci95_low": -0.0043399351514860985,
+    "ci95_high": 0.008022656133272882,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "uniform_replay",
+    "label": "M4 without PER (uniform replay)",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -0.2961672632229905,
+    "ci95_low": -2.140845007446842,
+    "ci95_high": 1.3641995914667235,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "uniform_replay",
+    "label": "M4 without PER (uniform replay)",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.0007689112932046024,
+    "ci95_low": -0.005782939424090663,
+    "ci95_high": 0.008359724418169888,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "no_pi",
+    "label": "M4 without PI residual guidance",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -0.6872664750511396,
+    "ci95_low": -1.937281573035273,
+    "ci95_high": 0.470449577060029,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "no_pi",
+    "label": "M4 without PI residual guidance",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": -0.0008161296554052896,
+    "ci95_low": -0.006990344739841025,
+    "ci95_high": 0.005149136180158516,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "original_madqn",
+    "label": "Original MADQN (matched retraining)",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -10.100246831777213,
+    "ci95_low": -11.976423296861135,
+    "ci95_high": -8.424659854447908,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "original_madqn",
+    "label": "Original MADQN (matched retraining)",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.004568603361773319,
+    "ci95_low": -0.0031224160688030026,
+    "ci95_high": 0.013888966046492273,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "pi_baseline",
+    "label": "Coordinated PI baseline",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -9.509387937133358,
+    "ci95_low": -10.819823946505945,
+    "ci95_high": -8.193912163717494,
+    "paired_n": 150
+  },
+  {
+    "method": "single",
+    "ablation": "pi_baseline",
+    "label": "Coordinated PI baseline",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.03599197465221976,
+    "ci95_low": 0.031214419441073137,
+    "ci95_high": 0.04065041439941029,
+    "paired_n": 150
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "no_global",
+    "label": "M4 without global features",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -0.626949838119039,
+    "ci95_low": -1.3086595313041283,
+    "ci95_high": 0.08621928449556761,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "no_global",
+    "label": "M4 without global features",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.001970522458754552,
+    "ci95_low": -0.0006359262585541109,
+    "ci95_high": 0.004616643770868296,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "no_gru",
+    "label": "M4 without GRU",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -1.8507686205273661,
+    "ci95_low": -2.613480700676878,
+    "ci95_high": -1.0963580788148826,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "no_gru",
+    "label": "M4 without GRU",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.005157107308337095,
+    "ci95_low": 0.0023151994142801098,
+    "ci95_high": 0.008045731211433595,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "no_qmix",
+    "label": "M4 without QMIX",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -1.3339511268881092,
+    "ci95_low": -2.101635071578843,
+    "ci95_high": -0.5765353377294914,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "no_qmix",
+    "label": "M4 without QMIX",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.004061096113580792,
+    "ci95_low": 0.0012754805108353795,
+    "ci95_high": 0.006913929377201222,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "one_step",
+    "label": "M4 without n-step (1-step)",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -0.9212896121811646,
+    "ci95_low": -1.624158293746995,
+    "ci95_high": -0.17059894620461102,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "one_step",
+    "label": "M4 without n-step (1-step)",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.004318509740890379,
+    "ci95_low": 0.0015641705921443688,
+    "ci95_high": 0.0069314178192693456,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "uniform_replay",
+    "label": "M4 without PER (uniform replay)",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -0.3516206575538509,
+    "ci95_low": -1.0525675566988584,
+    "ci95_high": 0.3405838589335236,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "uniform_replay",
+    "label": "M4 without PER (uniform replay)",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.002273306982014324,
+    "ci95_low": -0.00033323758753676236,
+    "ci95_high": 0.004936334496121964,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "no_pi",
+    "label": "M4 without PI residual guidance",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": 1.2552559494067153,
+    "ci95_low": 0.5206991316093963,
+    "ci95_high": 2.0541804367342733,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "no_pi",
+    "label": "M4 without PI residual guidance",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": -0.0029435353694110314,
+    "ci95_low": -0.00600248855120986,
+    "ci95_high": 8.195289907567994e-06,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "original_madqn",
+    "label": "Original MADQN (matched retraining)",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -11.060206126330018,
+    "ci95_low": -12.158710874802281,
+    "ci95_high": -10.038987158954543,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "original_madqn",
+    "label": "Original MADQN (matched retraining)",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.005164945646886618,
+    "ci95_low": 0.0011518432708477744,
+    "ci95_high": 0.00972891311445265,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "pi_baseline",
+    "label": "Coordinated PI baseline",
+    "metric": "reward_x1000",
+    "delta_ablation_minus_full": -11.512626666853574,
+    "ci95_low": -12.641900080968382,
+    "ci95_high": -10.409661094815945,
+    "paired_n": 30
+  },
+  {
+    "method": "q_ensemble_5",
+    "ablation": "pi_baseline",
+    "label": "Coordinated PI baseline",
+    "metric": "nrmse",
+    "delta_ablation_minus_full": 0.04256086625601251,
+    "ci95_low": 0.03908115245772569,
+    "ci95_high": 0.046010607141247654,
+    "paired_n": 30
+  }
+]

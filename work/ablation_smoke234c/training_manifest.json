@@ -1,0 +1,23 @@
+[
+  {
+    "module": "m2",
+    "run_seed": 13101,
+    "episodes": 4,
+    "checkpoint": "work/ablation_smoke234c/m2/run_13101/model.pt",
+    "training_seconds": 16.84299999999348
+  },
+  {
+    "module": "m3",
+    "run_seed": 13101,
+    "episodes": 4,
+    "checkpoint": "work/ablation_smoke234c/m3/run_13101/model.pt",
+    "training_seconds": 16.92099999997299
+  },
+  {
+    "module": "m4",
+    "run_seed": 13101,
+    "episodes": 4,
+    "checkpoint": "work/ablation_smoke234c/m4/run_13101/model.pt",
+    "training_seconds": 16.95299999997951
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "config": "no_global",
+  "label": "M4 without global features",
+  "run_seed": 13102,
+  "episodes_completed": 600,
+  "converged": true,
+  "best_episode": 400,
+  "best_validation_reward_x1000": -38.139916372829056,
+  "best_validation_nrmse": 0.12816780535311773,
+  "training_seconds": 5323.140999999829,
+  "checkpoint": "outputs/controlled_m4_ablation/formal/no_global/run_13102/best_model.pt"
+}

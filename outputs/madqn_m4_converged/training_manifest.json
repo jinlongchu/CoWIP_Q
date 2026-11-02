@@ -1,0 +1,47 @@
+[
+  {
+    "run_seed": 13101,
+    "episodes_completed": 800,
+    "converged": false,
+    "best_episode": 700,
+    "best_validation_reward_x1000": -39.66433843018756,
+    "best_validation_nrmse": 0.13519746355852397,
+    "checkpoint": "outputs/madqn_m4_converged/run_13101/best_model.pt"
+  },
+  {
+    "run_seed": 13102,
+    "episodes_completed": 750,
+    "converged": true,
+    "best_episode": 550,
+    "best_validation_reward_x1000": -38.68556391334469,
+    "best_validation_nrmse": 0.12990066850259055,
+    "checkpoint": "outputs/madqn_m4_converged/run_13102/best_model.pt"
+  },
+  {
+    "run_seed": 13103,
+    "episodes_completed": 750,
+    "converged": true,
+    "best_episode": 550,
+    "best_validation_reward_x1000": -37.605682563702196,
+    "best_validation_nrmse": 0.1306586901205487,
+    "checkpoint": "outputs/madqn_m4_converged/run_13103/best_model.pt"
+  },
+  {
+    "run_seed": 13104,
+    "episodes_completed": 800,
+    "converged": false,
+    "best_episode": 750,
+    "best_validation_reward_x1000": -39.42326635834624,
+    "best_validation_nrmse": 0.1379232919140195,
+    "checkpoint": "outputs/madqn_m4_converged/run_13104/best_model.pt"
+  },
+  {
+    "run_seed": 13105,
+    "episodes_completed": 750,
+    "converged": true,
+    "best_episode": 550,
+    "best_validation_reward_x1000": -38.54634812837903,
+    "best_validation_nrmse": 0.13405351682620145,
+    "checkpoint": "outputs/madqn_m4_converged/run_13105/best_model.pt"
+  }
+]

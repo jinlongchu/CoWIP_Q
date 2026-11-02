@@ -1,0 +1,12 @@
+{
+  "config": "full_m4",
+  "label": "Full M4",
+  "run_seed": 13103,
+  "episodes_completed": 750,
+  "converged": true,
+  "best_episode": 550,
+  "best_validation_reward_x1000": -37.605682563702196,
+  "best_validation_nrmse": 0.1306586901205487,
+  "training_seconds": 4778.030999999959,
+  "checkpoint": "outputs/controlled_m4_ablation/formal/full_m4/run_13103/best_model.pt"
+}

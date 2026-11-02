@@ -1,0 +1,12 @@
+{
+  "config": "one_step",
+  "label": "M4 without n-step (1-step)",
+  "run_seed": 13102,
+  "episodes_completed": 1250,
+  "converged": false,
+  "best_episode": 1250,
+  "best_validation_reward_x1000": -38.99711754804711,
+  "best_validation_nrmse": 0.13539058535084325,
+  "training_seconds": 8678.656000000192,
+  "checkpoint": "outputs/controlled_m4_ablation/formal/one_step/run_13102/best_model.pt"
+}

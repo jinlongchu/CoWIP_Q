@@ -1,0 +1,826 @@
+[
+  {
+    "page": 1,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Global features + GRU + QMIX + 3-step + PER; five independently trained models; PI residual guidance off."
+  },
+  {
+    "page": 2,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Online networks, target networks and ensemble members have distinct roles in M4."
+  },
+  {
+    "page": 2,
+    "x": 34,
+    "y": 130,
+    "w": 366,
+    "h": 82.5,
+    "text": "Upgrade three workshop supervisors into a team: <b>read a plant-wide dashboard, remember recent changes, and learn from plant-wide performance</b>. During training, look several steps ahead and revisit difficult experiences. At deployment, five independently trained teams score each action."
+  },
+  {
+    "page": 2,
+    "x": 439,
+    "y": 130,
+    "w": 367,
+    "h": 115.5,
+    "text": "MATD3 has actors, twin critics and a minimum over two target values. Here, <b>discrete-action value learning</b> scores three candidate actions, and QMIX learns a team value.<br/><br/>There are no actors, twin-critic minimum or target-action noise. Double-DQN-style targets use online action selection and target-network evaluation."
+  },
+  {
+    "page": 2,
+    "x": 454,
+    "y": 325,
+    "w": 337,
+    "h": 46.35,
+    "text": "QMIX is used only during training, but the 24-D global summary is also broadcast during execution. Execution is therefore not strictly local and communication-free."
+  },
+  {
+    "page": 2,
+    "x": 439,
+    "y": 444,
+    "w": 367,
+    "h": 63.599999999999994,
+    "text": "Pages 3-4: problem and objective. Pages 5-13: individual improvements. Pages 14-16: learning and control end to end. Pages 17-19: what the experiments establish. Page 20: glossary and evidence."
+  },
+  {
+    "page": 3,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "The controller changes permitted work-in-process in each unit, not machine speed."
+  },
+  {
+    "page": 3,
+    "x": 35,
+    "y": 367,
+    "w": 365,
+    "h": 127.19999999999999,
+    "text": "A/B processing times vary randomly, throughput targets change, and individual stages temporarily slow down. Releasing more WIP can feed a starved downstream unit or fill an already crowded buffer. <b>A busier local line does not guarantee a better plant.</b><br/><br/>There is no separate random breakdown/repair module. Disturbances come from processing-time randomness, target changes and processing-mean changes."
+  },
+  {
+    "page": 3,
+    "x": 439,
+    "y": 329,
+    "w": 367,
+    "h": 63.599999999999994,
+    "text": "Warm up for 720 minutes, then control for 3600 minutes. Decisions occur every 10 minutes: 360 per episode. Throughput and reference use 120-minute rolling windows. Initial caps: A=3, B=3, assembly=2."
+  },
+  {
+    "page": 3,
+    "x": 454,
+    "y": 445,
+    "w": 337,
+    "h": 45.449999999999996,
+    "text": "Targets: 3 → 6 → 5 → 5 → 5 → 3 sets/hour. Regime 3 increases A/B variability; regime 4 slows B stage 3 by 15%; regime 5 instead slows A stage 2 by 15%; the last restores normal conditions."
+  },
+  {
+    "page": 4,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Tracking, inventory and cap adjustments share one reward."
+  },
+  {
+    "page": 4,
+    "x": 52,
+    "y": 218,
+    "w": 739,
+    "h": 19,
+    "text": "r(t) = − [ tracking cost + 0.05 × mean WIP / 38 + 0.005 × Σ|cap change| / 3 ]"
+  },
+  {
+    "page": 4,
+    "x": 35,
+    "y": 317,
+    "w": 365,
+    "h": 128.39999999999998,
+    "text": "Reward is negative total cost, so <b>−35 is better than −39</b>. Reward ×1000 is the episode's mean per-step reward multiplied by 1000, then averaged across test episodes. It is neither cumulative return nor exploratory training reward.<br/><br/>Tracking cost is squared normalized error. Episode NRMSE is the square root of mean tracking cost and excludes inventory and adjustment costs."
+  },
+  {
+    "page": 4,
+    "x": 439,
+    "y": 317,
+    "w": 367,
+    "h": 144.45,
+    "text": "The matched MADQN baseline uses three feedforward Q networks, current 45-D observations, independent learning, 1-step targets and uniform replay. New M4 adds spatial coordination, short-term memory, team-value learning and training enhancements, then ensembles five models.<br/><br/>The contribution is <b>environment-specific integration and validation</b>. GRU, QMIX and PER themselves are established methods, not inventions of this project."
+  },
+  {
+    "page": 4,
+    "x": 36,
+    "y": 507,
+    "w": 768,
+    "h": 14,
+    "text": "WIP accounting: A WIP + B WIP + 2 × assembly WIP + both finished-parts buffers. Each assembly set contains two parts."
+  },
+  {
+    "page": 5,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Address the blind spot where one line looks healthy but the bottleneck is elsewhere."
+  },
+  {
+    "page": 5,
+    "x": 35,
+    "y": 442,
+    "w": 369,
+    "h": 63.599999999999994,
+    "text": "These features summarize three observable local vectors; they do not reveal the future. The original 45-D observation already includes shared buffers and throughput, so removing global features does not eliminate every plant-wide signal."
+  },
+  {
+    "page": 5,
+    "x": 439,
+    "y": 135,
+    "w": 367,
+    "h": 66.0,
+    "text": "Suppose A's buffer is almost full, B's almost empty, and assembly waits for a pair. An A supervisor focused only on local utilization may release more work and worsen accumulation. Seeing B and assembly makes plant-wide balancing possible."
+  },
+  {
+    "page": 5,
+    "x": 439,
+    "y": 274,
+    "w": 367,
+    "h": 64.19999999999999,
+    "text": "The summary links the three units spatially so Q networks can learn who is waiting for whom. It requires timely broadcast during execution. The ablation removes only these 24 dimensions from Q-network inputs; <b>QMIX retains its 24-D conditioning input</b>."
+  },
+  {
+    "page": 5,
+    "x": 453,
+    "y": 431,
+    "w": 339,
+    "h": 61.199999999999996,
+    "text": "Without module, Reward ×1000: <b>-38.602</b>; full version: <b>-35.540</b>.Mean advantage of retaining the module: <b>3.061</b>. Conditional on other modules and five-model ensembling; not its standalone benefit."
+  },
+  {
+    "page": 6,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "GRU stands for Gated Recurrent Unit."
+  },
+  {
+    "page": 6,
+    "x": 490,
+    "y": 161,
+    "w": 311,
+    "h": 83.25,
+    "text": "The final frame is identical but the trends differ. A current-frame network cannot easily identify the path taken. GRU compresses recent frames into short-term memory, giving action scoring information about direction of change."
+  },
+  {
+    "page": 6,
+    "x": 490,
+    "y": 266,
+    "w": 311,
+    "h": 45.9,
+    "text": "Illustration only. Actual actions also depend on the target, pair starvation and plant-wide state. These counts alone do not determine an action."
+  },
+  {
+    "page": 6,
+    "x": 35,
+    "y": 395,
+    "w": 365,
+    "h": 80.24999999999999,
+    "text": "The <b>update gate</b> controls how much old memory remains. The <b>reset gate</b> controls how much old information contributes to a candidate memory. Noise can be downweighted while persistent blocking or target changes are retained. Gate values are learned, not hand-coded thresholds."
+  },
+  {
+    "page": 6,
+    "x": 439,
+    "y": 395,
+    "w": 367,
+    "h": 64.19999999999999,
+    "text": "The original feedforward network scores the current observation directly. GRU first interprets a short sequence. The same error may mean a new deviation or an ongoing recovery. Memory can distinguish these and reduce reactions to momentary fluctuations."
+  },
+  {
+    "page": 7,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Each forward pass reads the latest 4 frames; hidden state does not persist across the whole episode."
+  },
+  {
+    "page": 7,
+    "x": 214,
+    "y": 170,
+    "w": 143,
+    "h": 96.29999999999998,
+    "text": "Each unit encodes its own time sequence. Weights are shared; hidden representations are not concatenated across units."
+  },
+  {
+    "page": 7,
+    "x": 214,
+    "y": 275,
+    "w": 143,
+    "h": 61.199999999999996,
+    "text": "Each forward pass starts with zero hidden state and uses the final 64-D representation."
+  },
+  {
+    "page": 7,
+    "x": 35,
+    "y": 411,
+    "w": 367,
+    "h": 92.7,
+    "text": "Within one model, GRU weights are shared but the three output heads have separate parameters to preserve unit roles. Across five models, GRUs, heads, QMIX, optimizers and replay buffers are independent.<br/><br/>Four frames cover t−3 through t, spanning 30 minutes. At episode start, repeat the initial frame until the history is full."
+  },
+  {
+    "page": 7,
+    "x": 453,
+    "y": 422,
+    "w": 339,
+    "h": 61.199999999999996,
+    "text": "Without module, Reward ×1000: <b>-39.358</b>; full version: <b>-35.540</b>.Mean advantage of retaining the module: <b>3.818</b>. Conditional on other modules and five-model ensembling; not its standalone benefit."
+  },
+  {
+    "page": 8,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "A shared reward reports plant performance; QMIX also learns how the agents' values combine."
+  },
+  {
+    "page": 8,
+    "x": 35,
+    "y": 135,
+    "w": 367,
+    "h": 115.5,
+    "text": "If completed-product throughput falls, A, B and assembly all receive the same poor reward. Should B's cap rise or A's accumulation shrink? Independent updates from a shared reward make it harder to connect an agent's action with its teammates.<br/><br/>QMIX combines the three actual-action Q values, conditioned on the global summary, into team value Qtotal."
+  },
+  {
+    "page": 8,
+    "x": 35,
+    "y": 341,
+    "w": 367,
+    "h": 96.29999999999998,
+    "text": "The coach examines handoffs, not just individual running speed. Mixer loss backpropagates through all three Q heads and the shared GRU, aligning local action scores with the shared objective.<br/><br/>QMIX does not explicitly calculate contribution percentages or manually assign responsibility."
+  },
+  {
+    "page": 8,
+    "x": 456,
+    "y": 461,
+    "w": 334,
+    "h": 61.199999999999996,
+    "text": "They need not represent physical throughput or separate unit profits. The main training constraint acts on the mixed team value. Do not interpret the three Q values as true contribution shares."
+  },
+  {
+    "page": 9,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "For a fixed state, increasing any local Q cannot decrease the mixed team Q."
+  },
+  {
+    "page": 9,
+    "x": 54,
+    "y": 126,
+    "w": 732,
+    "h": 24,
+    "text": "Qtotal = f(qA, qB, qC ; g), with ∂Qtotal / ∂qi ≥ 0"
+  },
+  {
+    "page": 9,
+    "x": 54,
+    "y": 159,
+    "w": 732,
+    "h": 30,
+    "text": "Implementation: a 24-D global summary generates two mixing layers' weights. Absolute values enforce nonnegative weights; the hidden layer uses ELU and width 32."
+  },
+  {
+    "page": 9,
+    "x": 35,
+    "y": 240,
+    "w": 366,
+    "h": 112.34999999999998,
+    "text": "Imagine three knobs connected to one dashboard. Turning any knob toward a higher local score cannot lower the team score. With fixed inputs and separable legal-action constraints, independent local argmax choices maximize the mixed value.<br/><br/>Training can evaluate the team while execution avoids enumerating all joint actions through QMIX. See [1]."
+  },
+  {
+    "page": 9,
+    "x": 35,
+    "y": 453,
+    "w": 366,
+    "h": 46.800000000000004,
+    "text": "Monotonicity limits expressiveness. Arbitrary nonmonotonic coordination relationships, where a locally preferred action must be sacrificed, cannot always be represented exactly."
+  },
+  {
+    "page": 9,
+    "x": 439,
+    "y": 240,
+    "w": 367,
+    "h": 80.24999999999999,
+    "text": "Deployment does not run the mixer, but each Q network still reads the broadcast global summary. Averaging local Q values across models adds another operation. Single-model monotonicity <b>does not guarantee that the ensemble action maximizes the mean of five Qtotal values</b>. Ensemble benefits are empirical."
+  },
+  {
+    "page": 9,
+    "x": 453,
+    "y": 432,
+    "w": 339,
+    "h": 61.199999999999996,
+    "text": "Without module, Reward ×1000: <b>-38.432</b>; full version: <b>-35.540</b>.Mean advantage of retaining the module: <b>2.891</b>. Conditional on other modules and five-model ensembling; not its standalone benefit."
+  },
+  {
+    "page": 10,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "n-step does not peek into the future. It waits for actual transitions, then learns from several consequences together."
+  },
+  {
+    "page": 10,
+    "x": 48,
+    "y": 229,
+    "w": 744,
+    "h": 21,
+    "text": "y = r(t) + γ r(t+1) + γ² r(t+2) + γ³ (1−d) Qtotal−(t+3)"
+  },
+  {
+    "page": 10,
+    "x": 50,
+    "y": 259,
+    "w": 741,
+    "h": 15,
+    "text": "Usually n = 3. Near episode end use the actual remaining n, with no bootstrap after termination. γ = 0.99."
+  },
+  {
+    "page": 10,
+    "x": 35,
+    "y": 332,
+    "w": 366,
+    "h": 128.39999999999998,
+    "text": "After a cap increase, extra parts are still in transit and throughput may not rise immediately. A one-step target may initially see only inventory cost. Three-step returns bring rewards from three actual decision intervals back to the current action.<br/><br/>Three steps cover about 30 minutes, not every processing or rolling-window delay. Longer effects still rely on value bootstrapping."
+  },
+  {
+    "page": 10,
+    "x": 439,
+    "y": 332,
+    "w": 367,
+    "h": 78.0,
+    "text": "For rewards −0.04, −0.03 and −0.02, the discounted short return is approximately −0.0893, plus 0.99³ times the successor value. This extends the learning horizon rather than tripling reward. Longer returns can increase variance and off-policy bias; larger n is not always better."
+  },
+  {
+    "page": 10,
+    "x": 453,
+    "y": 461,
+    "w": 339,
+    "h": 61.199999999999996,
+    "text": "Without module, Reward ×1000: <b>-38.036</b>; full version: <b>-35.540</b>.Mean advantage of retaining the module: <b>2.496</b>. Conditional on other modules and five-model ensembling; not its standalone benefit."
+  },
+  {
+    "page": 11,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Prioritized Experience Replay assigns priority according to prediction error."
+  },
+  {
+    "page": 11,
+    "x": 35,
+    "y": 290,
+    "w": 367,
+    "h": 110.25,
+    "text": "A bad outcome can have low TD error if already predicted accurately. An unexpectedly good outcome can have high TD error. PER favors <b>experiences the current model cannot yet explain</b>, not only failures.<br/><br/>Target switches or congestion turning points may therefore receive more replay. The code does not hand-assign priority to regime changes."
+  },
+  {
+    "page": 11,
+    "x": 439,
+    "y": 290,
+    "w": 367,
+    "h": 93.60000000000001,
+    "text": "Sampling probability is proportional to priority raised to 0.6, moderating concentration. Importance weights reduce nonuniform-sampling bias; β rises from 0.4 to 1 and weights are batch-normalized. New experiences receive the current maximum priority.<br/>See [2]."
+  },
+  {
+    "page": 11,
+    "x": 50,
+    "y": 486,
+    "w": 339,
+    "h": 30.0,
+    "text": "n-step sets how far one sample's target looks ahead. PER sets how often that sample is revisited. They address different issues."
+  },
+  {
+    "page": 11,
+    "x": 453,
+    "y": 457,
+    "w": 339,
+    "h": 61.199999999999996,
+    "text": "Without module, Reward ×1000: <b>-37.311</b>; full version: <b>-35.540</b>.Mean advantage of retaining the module: <b>1.771</b>. Conditional on other modules and five-model ensembling; not its standalone benefit."
+  },
+  {
+    "page": 12,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Not majority voting, action averaging, or averaging five separate rewards and calling that deployed performance."
+  },
+  {
+    "page": 12,
+    "x": 35,
+    "y": 135,
+    "w": 366,
+    "h": 132.0,
+    "text": "The five members share an architecture but independently initialize, explore and learn under different seeds. Each has its own replay buffer, optimizer, targets and best validation checkpoint.<br/><br/>At execution, all receive the same history. Average Q arithmetically for each unit and candidate action, then select the highest-scoring legal action."
+  },
+  {
+    "page": 12,
+    "x": 45,
+    "y": 335,
+    "w": 346,
+    "h": 40,
+    "text": "Mean qi(a) = [q¹i(a) + … + q⁵i(a)] / 5<br/>ai = argmax of mean qi over legal actions"
+  },
+  {
+    "page": 12,
+    "x": 50,
+    "y": 448,
+    "w": 336,
+    "h": 45.9,
+    "text": "New M4 single-model mean: -39.486; five-model joint deployment: -35.540. Mean NRMSE falls from 0.13171 to 0.12302. These compare actual control trajectories."
+  },
+  {
+    "page": 12,
+    "x": 439,
+    "y": 380,
+    "w": 367,
+    "h": 47.25,
+    "text": "Teaching numbers, not model outputs. Voting chooses decrease by 3:2. Mean-Q selection chooses hold because −1.04 is highest. Score margins also affect the decision."
+  },
+  {
+    "page": 12,
+    "x": 439,
+    "y": 455,
+    "w": 367,
+    "h": 46.35,
+    "text": "Benefit: may reduce accidental single-run bias. Cost: roughly five networks' training and inference. Q scales are not explicitly calibrated, and errors are not guaranteed to cancel."
+  },
+  {
+    "page": 13,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "M4 remains the project version name; this does not imply retaining the old PI branch."
+  },
+  {
+    "page": 13,
+    "x": 35,
+    "y": 464,
+    "w": 367,
+    "h": 46.800000000000004,
+    "text": "Indices 0 / 1 / 2 mean cap changes −1 / 0 / +1. Caps stay within 0-8 and illegal candidates are masked. Reducing a cap does not remove existing WIP; it limits subsequent releases."
+  },
+  {
+    "page": 13,
+    "x": 439,
+    "y": 464,
+    "w": 367,
+    "h": 46.800000000000004,
+    "text": "The new version needs no PI formula, advice or residual constraint. The choice follows existing project results, not a claim that PI is always useless. All following ablations keep PI off."
+  },
+  {
+    "page": 14,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Expand the training part of the overview and identify what each arrow carries."
+  },
+  {
+    "page": 14,
+    "x": 94,
+    "y": 134,
+    "w": 394,
+    "h": 30,
+    "text": "PER draws 64 experiences: current history, global summary, actual actions, multi-step return, successor history and terminal flag."
+  },
+  {
+    "page": 14,
+    "x": 94,
+    "y": 216,
+    "w": 394,
+    "h": 30,
+    "text": "Online GRU and Q heads score actions. Gather executed-action Q values and combine them with online QMIX into current Qtotal."
+  },
+  {
+    "page": 14,
+    "x": 94,
+    "y": 298,
+    "w": 394,
+    "h": 30,
+    "text": "At the successor history, online Q selects the best legal action. Target Q evaluates that action, then target QMIX produces successor value."
+  },
+  {
+    "page": 14,
+    "x": 94,
+    "y": 380,
+    "w": 394,
+    "h": 30,
+    "text": "Multi-step reward plus discounted successor value gives y. Weighted Huber loss between Qtotal and y updates online parameters."
+  },
+  {
+    "page": 14,
+    "x": 94,
+    "y": 462,
+    "w": 394,
+    "h": 30,
+    "text": "Update replay priorities using this batch's |TD error|. Every 250 gradient updates, copy online weights to targets."
+  },
+  {
+    "page": 14,
+    "x": 549,
+    "y": 163,
+    "w": 238,
+    "h": 144,
+    "text": "<b>Online network:</b> selects the best successor action and receives gradients for the current estimate.<br/><br/><b>Target network:</b> provides a steadier estimate of that selected action. Target y is detached.<br/><br/>Separating selection from evaluation helps reduce overestimation. See [3]."
+  },
+  {
+    "page": 14,
+    "x": 546,
+    "y": 416,
+    "w": 244,
+    "h": 62.400000000000006,
+    "text": "This is online selection and target evaluation, not the minimum of twin critics. The five members do not average each other's TD targets; they train independently."
+  },
+  {
+    "page": 15,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "This guide uses completed experiments. No retraining or new seeds; comparison definitions remain consistent."
+  },
+  {
+    "page": 15,
+    "x": 36,
+    "y": 190,
+    "w": 769,
+    "h": 14,
+    "text": "Validation seeds: 16101-16112. Test seeds: 30101-30130. Validation selects models; test compares them. Do not interchange the two."
+  },
+  {
+    "page": 15,
+    "x": 439,
+    "y": 235,
+    "w": 367,
+    "h": 126.0,
+    "text": "Training seeds: 13101-13105. Validate on 12 fixed seeds every 50 episodes. Reward gain >0.05 (×1000 units) is an improvement. If reward differs by at most 0.05, an NRMSE decrease >0.0002 can update the best point.<br/><br/>Train at least 300 episodes; stop after 4 validations without improvement, with a 1250-episode limit. Use the best validation checkpoint, not the final episode."
+  },
+  {
+    "page": 15,
+    "x": 454,
+    "y": 454,
+    "w": 337,
+    "h": 60.599999999999994,
+    "text": "Across six configurations and 30 members, 27 meet validation early stopping and 3 reach the budget limit. New M4, no-GRU and no-QMIX each have one limit-reaching member. Do not claim every model fully converged."
+  },
+  {
+    "page": 16,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "A teaching scenario showing module roles, not a timestamp-by-timestamp explanation extracted from a test trajectory."
+  },
+  {
+    "page": 16,
+    "x": 92,
+    "y": 133,
+    "w": 708,
+    "h": 30,
+    "text": "Combine A/B buffers, unit WIP and operating states. The model may recognize A accumulation, B undersupply and assembly waiting for matching parts."
+  },
+  {
+    "page": 16,
+    "x": 92,
+    "y": 202,
+    "w": 708,
+    "h": 15,
+    "text": "Review four frames: is B starvation persistent and A accumulation growing? The same present error can have different histories."
+  },
+  {
+    "page": 16,
+    "x": 92,
+    "y": 271,
+    "w": 708,
+    "h": 15,
+    "text": "Training evaluates the joint actions with team value, allowing local scores to favor plant-wide balance instead of local utilization alone."
+  },
+  {
+    "page": 16,
+    "x": 92,
+    "y": 340,
+    "w": 708,
+    "h": 15,
+    "text": "Backpropagate actual rewards from several intervals so release decisions learn some delayed consequences sooner."
+  },
+  {
+    "page": 16,
+    "x": 92,
+    "y": 409,
+    "w": 708,
+    "h": 15,
+    "text": "A large target-prediction gap increases the chance of replay. Priority changes again as prediction improves."
+  },
+  {
+    "page": 16,
+    "x": 92,
+    "y": 478,
+    "w": 708,
+    "h": 30,
+    "text": "At execution, five models score actions separately. Average the scores to choose the three unit actions, reducing accidental single-run preferences."
+  },
+  {
+    "page": 17,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "PI stays off. Remove one module at a time and hold other settings fixed. All results here are test performance of five-model ensembles."
+  },
+  {
+    "page": 17,
+    "x": 50,
+    "y": 493,
+    "w": 340,
+    "h": 29.400000000000002,
+    "text": "All five reward-difference intervals lie above zero. On this fixed test set, retaining each module improves mean reward."
+  },
+  {
+    "page": 17,
+    "x": 450,
+    "y": 493,
+    "w": 340,
+    "h": 29.400000000000002,
+    "text": "Do not add the five differences or claim statistically different contributions merely by ranking their means."
+  },
+  {
+    "page": 17,
+    "x": 180,
+    "y": 443,
+    "w": 596,
+    "h": 12,
+    "text": "Horizontal bars: 95% intervals from 8,000 paired bootstrap resamples over shared test seeds; no multiplicity correction."
+  },
+  {
+    "page": 18,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Aggregate reward trades off tracking, WIP and adjustment cost. NRMSE is not the only outcome."
+  },
+  {
+    "page": 18,
+    "x": 35,
+    "y": 423,
+    "w": 366,
+    "h": 62.400000000000006,
+    "text": "Without GRU, NRMSE rises from 0.12302 to 0.13515, approximately +0.01214, with a paired 95% interval excluding zero. The other four NRMSE intervals include zero, so they should not all be described as significant tracking improvements."
+  },
+  {
+    "page": 18,
+    "x": 439,
+    "y": 423,
+    "w": 367,
+    "h": 62.400000000000006,
+    "text": "Removing either slightly lowers mean NRMSE but increases inventory and adjustment points, worsening reward. This is consistent with improved cost trade-offs, but without reward-component decomposition it does not establish exact attribution."
+  },
+  {
+    "page": 18,
+    "x": 35,
+    "y": 523,
+    "w": 770,
+    "h": 13,
+    "text": "Every row averages the same 30 test seeds. A change point is a decision where at least one cap changes, not Σ|cap change|."
+  },
+  {
+    "page": 19,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "Mechanisms explain why a module may help. Ablations show what happens when it is removed from this configuration and test."
+  },
+  {
+    "page": 19,
+    "x": 35,
+    "y": 135,
+    "w": 366,
+    "h": 115.5,
+    "text": "The baseline includes global features, GRU, QMIX, 3-step, PER and five-model ensembling. Each ablation removes one component; PI is always off.<br/><br/>These are <b>conditional contributions</b>: GRU helps when the other modules remain. They are not results for adding GRU alone to original MADQN, nor a complete interaction study."
+  },
+  {
+    "page": 19,
+    "x": 35,
+    "y": 339,
+    "w": 366,
+    "h": 96.29999999999998,
+    "text": "No-GRU uses a current-frame feedforward network, not a parameter-count-matched substitute. No-QMIX uses separate per-agent TD learning.<br/><br/>Results compare these specific implementations, not abstract effects independent of capacity and learning targets."
+  },
+  {
+    "page": 19,
+    "x": 50,
+    "y": 505,
+    "w": 336,
+    "h": 14.549999999999999,
+    "text": "Uses the fixed training and test seeds."
+  },
+  {
+    "page": 19,
+    "x": 439,
+    "y": 135,
+    "w": 367,
+    "h": 112.34999999999998,
+    "text": "Single-model summaries use 5 training members × 30 test seeds. An ensemble is one fixed team of those members, run on 30 seeds.<br/><br/>For single-model reward differences, global-feature and PER intervals include zero; GRU, QMIX and 3-step intervals exclude zero. Clear ensemble gains do not imply every single model benefits reliably."
+  },
+  {
+    "page": 19,
+    "x": 439,
+    "y": 356,
+    "w": 367,
+    "h": 79.5,
+    "text": "Under the specified environment and fixed training/test seeds, the PI-off M4 five-model independent Q ensemble achieves higher aggregate reward. Leave-one-module-out experiments show positive conditional contributions of all five modules to ensemble reward, with GRU providing the clearest tracking-accuracy benefit."
+  },
+  {
+    "page": 19,
+    "x": 439,
+    "y": 467,
+    "w": 367,
+    "h": 43.199999999999996,
+    "text": "Test seeds have been used for version comparison, so this is not a fresh external final test. Intervals do not cover all uncertainty from environment changes or retraining multiple ensembles."
+  },
+  {
+    "page": 20,
+    "x": 33,
+    "y": 70,
+    "w": 775.8897637795277,
+    "h": 13.4,
+    "text": "See more → remember changes → coordinate → learn farther ahead → replay difficulties → combine models."
+  },
+  {
+    "page": 20,
+    "x": 35,
+    "y": 460,
+    "w": 367,
+    "h": 63.0,
+    "text": "<b>Key distinction:</b> ensemble members are independent. Within each member, one GRU is shared and three dedicated Q heads remain. QMIX is training-only; global summaries are also used during execution."
+  },
+  {
+    "page": 20,
+    "x": 439,
+    "y": 134,
+    "w": 367,
+    "h": 100.79999999999998,
+    "text": "Architecture/training: run_controlled_m4_ablation.py. Networks, global summary and replay: run_madqn_ablation.py. Environment: pair_v2.py / baseline_algorithms.py.<br/><br/>Values come directly from m4_no_pi_ablation/comparison_summary.json, paired_contrasts.json and training_manifest.json. Only the test partition is used, not validation_audit."
+  },
+  {
+    "page": 20,
+    "x": 439,
+    "y": 313,
+    "w": 367,
+    "h": 14,
+    "text": "<link href=\"https://arxiv.org/abs/1803.11485\" color=\"#3B70B2\">[1] Rashid et al., 2018: QMIX and monotonic value factorization.</link>"
+  },
+  {
+    "page": 20,
+    "x": 439,
+    "y": 352,
+    "w": 367,
+    "h": 14,
+    "text": "<link href=\"https://arxiv.org/abs/1511.05952\" color=\"#3B70B2\">[2] Schaul et al., 2016: Prioritized Experience Replay.</link>"
+  },
+  {
+    "page": 20,
+    "x": 439,
+    "y": 391,
+    "w": 367,
+    "h": 14,
+    "text": "<link href=\"https://arxiv.org/abs/1509.06461\" color=\"#3B70B2\">[3] van Hasselt et al., 2016: Double Q-learning.</link>"
+  },
+  {
+    "page": 20,
+    "x": 439,
+    "y": 430,
+    "w": 367,
+    "h": 14,
+    "text": "<link href=\"https://arxiv.org/abs/1406.1078\" color=\"#3B70B2\">[4] Cho et al., 2014: early gated recurrent unit architecture.</link>"
+  },
+  {
+    "page": 20,
+    "x": 454,
+    "y": 508,
+    "w": 337,
+    "h": 14.25,
+    "text": "Code-based diagrams; illustrative examples; real ablations."
+  }
+]

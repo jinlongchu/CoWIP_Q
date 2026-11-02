@@ -1,0 +1,228 @@
+{
+  "environment": {
+    "conditions": {
+      "target": 3,
+      "means": [
+        [
+          7.0,
+          8.0,
+          7.0,
+          8.0,
+          7.0
+        ],
+        [
+          8.0,
+          7.0,
+          8.0,
+          7.0,
+          7.0
+        ],
+        [
+          12.0,
+          16.0,
+          12.0
+        ]
+      ],
+      "gamma": [
+        9.0,
+        9.0,
+        9.0
+      ],
+      "distribution": [
+        "gamma",
+        "gamma",
+        "gamma"
+      ],
+      "uniform_width": 0.5
+    },
+    "schedule": [
+      [
+        600.0,
+        {
+          "target": 6
+        }
+      ],
+      [
+        1200.0,
+        {
+          "target": 5,
+          "gamma": [
+            2.0,
+            2.0,
+            9.0
+          ]
+        }
+      ],
+      [
+        1800.0,
+        {
+          "target": 5,
+          "gamma": [
+            9.0,
+            9.0,
+            9.0
+          ],
+          "means": [
+            [
+              7.0,
+              8.0,
+              7.0,
+              8.0,
+              7.0
+            ],
+            [
+              8.0,
+              7.0,
+              9.2,
+              7.0,
+              7.0
+            ],
+            [
+              12.0,
+              16.0,
+              12.0
+            ]
+          ]
+        }
+      ],
+      [
+        2400.0,
+        {
+          "means": [
+            [
+              7.0,
+              9.2,
+              7.0,
+              8.0,
+              7.0
+            ],
+            [
+              8.0,
+              7.0,
+              8.0,
+              7.0,
+              7.0
+            ],
+            [
+              12.0,
+              16.0,
+              12.0
+            ]
+          ]
+        }
+      ],
+      [
+        3000.0,
+        {
+          "target": 3,
+          "means": [
+            [
+              7.0,
+              8.0,
+              7.0,
+              8.0,
+              7.0
+            ],
+            [
+              8.0,
+              7.0,
+              8.0,
+              7.0,
+              7.0
+            ],
+            [
+              12.0,
+              16.0,
+              12.0
+            ]
+          ]
+        }
+      ]
+    ],
+    "initial_caps": [
+      3,
+      3,
+      2
+    ],
+    "buffer_capacities": [
+      3,
+      3
+    ],
+    "decision_minutes": 10.0,
+    "warmup_minutes": 720.0,
+    "horizon_minutes": 3600.0,
+    "window_minutes": 120.0,
+    "inventory_weight": 0.05,
+    "action_weight": 0.005,
+    "demand_gated": false,
+    "max_cap": 8
+  },
+  "train_seeds": [
+    13101,
+    13102,
+    13103,
+    13104,
+    13105
+  ],
+  "test_seeds": [
+    14101,
+    14102,
+    14103,
+    14104,
+    14105,
+    14106,
+    14107,
+    14108,
+    14109,
+    14110,
+    14111,
+    14112
+  ],
+  "runs": 5,
+  "episodes": 300,
+  "fixed": "same-seed frozen selection from prior four-strategy run; cap (3,3,3)",
+  "pi": {
+    "implementation": "reconstructed controller; documented frozen parameter values; source equation unavailable",
+    "wip_factor": 1.15,
+    "kp": 6.0,
+    "ki": 0.25,
+    "local_gain": 0.5,
+    "action_deadband": 0.5,
+    "error_filter": 0.5,
+    "integral_limit": 24.0
+  },
+  "madqn": {
+    "algorithm": "three independent local Double-DQN Q-networks; shared team reward; shared replay buffer",
+    "observation": "one 45D local observation per cell",
+    "actions": "cap decrement / hold / increment, invalid boundary actions masked",
+    "gamma": 0.99,
+    "lr": 0.0001,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.05,
+    "hidden": 128,
+    "replay_capacity": 100000,
+    "batch_size": 128,
+    "learning_starts": 1000,
+    "target_update_steps": 1000
+  },
+  "dqn": {
+    "reconstruction": "central 135D MLP; 27 joint actions; replay 100k; batch 128; target update 1000 steps",
+    "gamma": 0.99,
+    "lr": 0.0001,
+    "epsilon_start": 1.0,
+    "epsilon_end": 0.05,
+    "hidden": 256
+  },
+  "reproducibility": "Training seeds 13101–13105, 300 episodes per run; test seeds 14101–14112. Fixed scan and DQN checkpoints were carried forward unchanged from the same-seed PairV2 run. PI transfer function is reconstructed because supplied snapshot lacks its source.",
+  "source_sha256": {
+    "conwip/pair_v2.py": "5cdeea9786157ebfd1cc82eda97fb9b20dd2f963e5a35a3f8b005f38e73e4cae",
+    "conwip/baseline_algorithms.py": "ff534553d31b8879cf438e6e9c081feccd565921e1d50324dd449180fe3e9437",
+    "run_four_strategies.py": "2265f6fe3060c5a552afe4b69faa30f3d5406e3b71a9b5e9a9be9e0b008e824d"
+  },
+  "trained_source_sha256": {
+    "conwip\\pair_v2.py": "5cdeea9786157ebfd1cc82eda97fb9b20dd2f963e5a35a3f8b005f38e73e4cae",
+    "conwip\\baseline_algorithms.py": "ff534553d31b8879cf438e6e9c081feccd565921e1d50324dd449180fe3e9437",
+    "run_four_strategies.py": "214850e71bb461561e53d61033fda26311f9d0882edbf0458feebeaa84a05bb6"
+  },
+  "post_training_packaging_edits": "After training, only runner portability/resume behavior changed; MADQN architecture, update equations, seeds, and checkpoints were unchanged."
+}

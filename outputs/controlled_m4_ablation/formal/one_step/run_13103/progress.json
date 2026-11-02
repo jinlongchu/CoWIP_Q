@@ -1,0 +1,11 @@
+{
+  "config": "one_step",
+  "run_seed": 13103,
+  "episode": 700,
+  "max_episodes": 1250,
+  "converged": false,
+  "best_episode": 500,
+  "best_validation_reward_x1000": -40.71658570136377,
+  "stale_validations": 4,
+  "elapsed_seconds": 4062.2660000000615
+}

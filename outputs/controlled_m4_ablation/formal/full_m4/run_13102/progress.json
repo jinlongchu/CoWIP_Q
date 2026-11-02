@@ -1,0 +1,11 @@
+{
+  "config": "full_m4",
+  "run_seed": 13102,
+  "episode": 750,
+  "max_episodes": 1250,
+  "converged": false,
+  "best_episode": 550,
+  "best_validation_reward_x1000": -38.68556391334469,
+  "stale_validations": 4,
+  "elapsed_seconds": 6665.219000000041
+}

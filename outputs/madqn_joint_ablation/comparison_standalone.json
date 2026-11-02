@@ -1,0 +1,16 @@
+[
+  {
+    "variant": "s13",
+    "n": 60,
+    "training_runs": 5,
+    "test_seeds": 12,
+    "reward_x1000_mean": -45.45313908664425,
+    "reward_x1000_sd": 4.166213864546561,
+    "nrmse_mean": 0.15209922711925908,
+    "nrmse_sd": 0.01581599860737834,
+    "mean_wip_mean": 15.72771431293748,
+    "mean_wip_sd": 1.1919883461555145,
+    "cap_adjustment_points_mean": 214.58333333333334,
+    "cap_adjustment_points_sd": 31.1487909097808
+  }
+]
